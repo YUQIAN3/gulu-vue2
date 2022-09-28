@@ -1,0 +1,23 @@
+{
+  "name": "gulu-demo",
+  "version": "0.0.1",
+  "description": "http://www.mohrss.gov.cn/xxgk2020/fdzdgknr/zcfg/gfxwj/rcrs/202112/P020211202354560821450.pdf",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/YUQIAN3/gulu-vue2-.git"
+  },
+  "keywords": [
+    "vue",
+    "ui"
+  ],
+  "author": "yu",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/YUQIAN3/gulu-vue2-/issues"
+  },
+  "homepage": "https://github.com/YUQIAN3/gulu-vue2-#readme"
+}
