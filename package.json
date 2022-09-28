@@ -1,7 +1,7 @@
 {
   "name": "gulu-demo",
   "version": "0.0.1",
-  "description": "http://www.mohrss.gov.cn/xxgk2020/fdzdgknr/zcfg/gfxwj/rcrs/202112/P020211202354560821450.pdf",
+  "description": "这是一个UI框架",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
@@ -21,6 +21,16 @@
   },
   "homepage": "https://github.com/YUQIAN3/gulu-vue2-#readme",
   "dependencies": {
-    "vue": "^3.2.39"
+    "node-sass":"^4.9.0",
+    "vue": "^2.5.16",
+    "vue-hot-reload-api": "^2.3.0"
+  },
+  "devDependencies": {
+    "@vue/component-compiler-utils": "^2.0.0",
+    "parcel-bundler": "^1.9.2",
+    "vue-template-compiler": "^2.5.16"
+  },
+  "alias": {
+    "vue" : "./node_modules/vue/dist/vue.common.js"
   }
 }
