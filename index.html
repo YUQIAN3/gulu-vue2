@@ -16,21 +16,46 @@
         }
     </style>
     <style>
+        .button-nav{
+            margin-top: 50px;
+        }
+        .box{
+            margin:20px;
+        }
     </style>
 </head>
 <body>
 <div id="app">
-    <g-button icon-name="setting"  icon-position="right" >
-       按钮</g-button>
-    <g-button  >
-        按钮</g-button>
-    <g-button icon-name="setting" icon-position="left" >
-       按钮</g-button>
-<g-icon name="download"></g-icon>
-    <g-icon  name="loading"></g-icon>
+    <div class="box">
+        <g-input value="张三 disabled" disabled></g-input>
+        <g-input value="李四 readonly" readonly ></g-input>
+        <g-input v-model="message" @change="inputChange"></g-input>
+        <button @click="message+=1">+1</button>
+        <p>{{message}}</p>
+    </div>
+    <div class="box">
+        <g-input value="王" error="姓名不能少于两个字" ></g-input>
+    </div>
+
+    <div class="button-nav">
+        <g-button :loadings="loading1" @click="loading1=!loading1" icon="settings"  icon-position="right" >
+        按钮1</g-button>
+        <g-button  >
+            按钮2</g-button>
+        <g-button  :loadings="loading2" @click="loading2=!loading2"  icon="loading" icon-position="left" >
+            按钮3</g-button>
+
+        <g-button-group>
+            <g-button icon="left">上一页</g-button>
+            <g-button >更多</g-button>
+            <g-button  icon="right" icon-position="right">下一页</g-button>
+        </g-button-group>
+        <g-icon name="download"></g-icon></div>
+
+
 </div>
 <script src="src/app.js"></script>
-<script src="//at.alicdn.com/t/c/font_3678038_0ftkl0e3vu0t.js"></script>
+<script src="//at.alicdn.com/t/c/font_3678038_zrujl6n5uv.js"></script>
 
 </body>
 </html>

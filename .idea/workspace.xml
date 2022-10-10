@@ -1,16 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="b6cd567f-ef20-48cb-a22c-0337275f4b79" name="Changes" comment="不能换左右方向了">
-      <change afterPath="$PROJECT_DIR$/button.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+    <list default="true" id="b6cd567f-ef20-48cb-a22c-0337275f4b79" name="Changes" comment="input 支持 v-model">
+      <change afterPath="$PROJECT_DIR$/karma.conf.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/button-Group.vue" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/icon.vue" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/input.vue" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/test/button.test.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/index.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Button.vue" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Button.vue" beforeDir="false" afterPath="$PROJECT_DIR$/src/button.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/app.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/yarn.lock" beforeDir="false" afterPath="$PROJECT_DIR$/yarn.lock" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -19,6 +22,9 @@
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="HighlightingSettingsPerFile">
+    <setting file="file://$PROJECT_DIR$/src/button.vue" root0="FORCE_HIGHLIGHTING" />
   </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
@@ -47,8 +53,18 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1664329756001</updated>
-      <workItem from="1664329757553" duration="10189000" />
+      <workItem from="1664329757553" duration="25594000" />
+      <workItem from="1665192399002" duration="11739000" />
+      <workItem from="1665369650600" duration="9904000" />
     </task>
+    <task id="LOCAL-00001" summary="添加loading状态">
+      <created>1664502688675</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1664502688675</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -69,15 +85,24 @@
     <MESSAGE value="引入svg" />
     <MESSAGE value="添加icon and iconPosition" />
     <MESSAGE value="不能换左右方向了" />
-    <option name="LAST_COMMIT_MESSAGE" value="不能换左右方向了" />
+    <MESSAGE value="验证iconPosition 为 left或right中的一个" />
+    <MESSAGE value="j将svg代码整理到icon.vue" />
+    <MESSAGE value="添加loading状态" />
+    <MESSAGE value="可以切换loading和其他的svg状态" />
+    <MESSAGE value="创建button group" />
+    <MESSAGE value="检测子元素是不是button" />
+    <MESSAGE value="第一个元素不需要margin left -1 px" />
+    <MESSAGE value="完成自动化测试" />
+    <MESSAGE value="添加input.vue 及其样式" />
+    <MESSAGE value="input 支持 v-model" />
+    <option name="LAST_COMMIT_MESSAGE" value="input 支持 v-model" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" type="javascript">
-          <url>file://$PROJECT_DIR$/src/Button.vue</url>
-          <line>37</line>
-          <properties lambdaOrdinal="-1" />
+          <url>file://$PROJECT_DIR$/src/button.vue</url>
+          <line>47</line>
           <option name="timeStamp" value="1" />
         </line-breakpoint>
       </breakpoints>
