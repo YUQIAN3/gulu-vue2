@@ -32,7 +32,7 @@ export default {
     },
    error:{
       type:String,
-    }
+    },
   }
 }
 </script>
