@@ -25,44 +25,23 @@
     </style>
     <style>
         .demo{
-            height:50px;
+            height:100px;
             border:1px solid red;
-
         }
     </style>
 </head>
 <body>
-<div id="app" style="margin:0 0;">
-    <g-row class="topbar">
-        <g-col class="demo"  span="9">
-            <g-row align="left">
-                <g-col>1</g-col>
-                <g-col>2</g-col>
-                <g-col>3</g-col>
-                <g-col>4</g-col>
-            </g-row>
+<div id="app" >
+    <g-row>
+        <g-col span="24" :ipad="{span:8}">
+            <div class="demo"></div>
         </g-col>
-         <g-col class="demo"  span="15">
-             <g-row align="right">
-                 <g-col>1</g-col>
-                 <g-col>2</g-col>
-                 <g-col>3</g-col>
-                 <g-col>4</g-col>
-                 <g-col>5</g-col>
-                 <g-col>6</g-col>
-                 <g-col>7</g-col>
-             </g-row>
-         </g-col>
     </g-row>
-    <g-row class="logo-search-qrcode">
-        <g-col class="demo"  span="4"></g-col>
-        <g-col class="demo" span="14"></g-col>
-        <g-col class="demo"  span="6"></g-col>
-    </g-row>
+
 <!--    <div style="border:1px solid black">-->
-<!--    <g-row gutter="20">-->
-<!--        <g-col>1</g-col>-->
-<!--        <g-col>2</g-col>-->
+<!--  <g-row gutter="20">-->
+<!--        <g-col  >1</g-col>-->
+<!--        <g-col  >2</g-col>-->
 <!--    </g-row>-->
 <!--    <g-row gutter="20">-->
 <!--        <g-col>1</g-col>-->
@@ -75,52 +54,52 @@
 <!--        <g-col>3</g-col>-->
 <!--        <g-col>4</g-col>-->
 <!--    </g-row>-->
-<!--    <g-row gutter="20">-->
-<!--    <g-col span="2">2</g-col>-->
-<!--    <g-col span="20" offset="2">20</g-col>-->
+<!--    <g-row  class="demo" gutter="20">-->
+<!--    <g-col   class="demo" span="2">2</g-col>-->
+<!--    <g-col   class="demo" span="20" offset="2">20</g-col>-->
 <!--</g-row>-->
 <!--        <g-row gutter="20">-->
-<!--            <g-col span="2">2</g-col>-->
-<!--            <g-col span="22">22</g-col>-->
+<!--            <g-col class="demo" span="2">2</g-col>-->
+<!--            <g-col  class="demo" span="22">22</g-col>-->
 <!--        </g-row>-->
+
 <!--    <g-row gutter="20">-->
 <!--        <g-col span="4">4</g-col>-->
 <!--        <g-col span="16" offset="4">16</g-col>-->
 <!--    </g-row>-->
 <!--    </div>-->
-<!--    <hr>-->
-<!--    <div class="box">-->
-<!--        <g-input value="张三 disabled" disabled></g-input>-->
-<!--        <g-input value="李四 readonly" readonly ></g-input>-->
-<!--      <g-input v-model="message" @change="inputChange"></g-input>-->
-<!--&lt;!&ndash;    <g-input :value="message"  @input="message=$event.target.value"></g-input>&ndash;&gt;-->
-<!--        <p>{{message}}</p>-->
-<!--        <button @click="message+=1">+1</button>-->
-<!--    </div>-->
-<!--    <div class="box">-->
-<!--        <g-input value="王" error="姓名不能少于两个字" ></g-input>-->
 
-<!--    </div>-->
+    <div class="box">
+        <g-input value="张三 disabled" disabled></g-input>
+        <g-input value="李四 readonly" readonly ></g-input>
+      <g-input v-model="message" @change="inputChange"></g-input>
+<!--    <g-input :value="message"  @input="message=$event.target.value"></g-input>-->
+        <p>{{message}}</p>
+        <button @click="message+=1">+1</button>
+    </div>
+    <div class="box">
+        <g-input value="王" error="姓名不能少于两个字" ></g-input>
 
-<!--    <div class="button-nav">-->
-<!--        <g-button :loadings="loading1" @click="loading1=!loading1" icon="settings"  icon-position="right" >-->
-<!--        按钮1</g-button>-->
-<!--        <g-button  >-->
-<!--            按钮2</g-button>-->
-<!--        <g-button  :loadings="loading2" @click="loading2=!loading2"  icon="loading" icon-position="left" >-->
-<!--            按钮3</g-button>-->
+    </div>
 
-<!--        <g-button-group>-->
-<!--            <g-button icon="left">上一页</g-button>-->
-<!--            <g-button >更多</g-button>-->
-<!--            <g-button  icon="right" icon-position="right">下一页</g-button>-->
-<!--        </g-button-group>-->
-<!--        <g-icon name="download"></g-icon></div>-->
+    <div class="button-nav">
+        <g-button :loadings="loading1" @click="loading1=!loading1" icon="settings"  icon-position="right" >
+        按钮1</g-button>
+        <g-button  >
+            按钮2</g-button>
+        <g-button  :loadings="loading2" @click="loading2=!loading2"  icon="loading" icon-position="left" >
+            按钮3</g-button>
 
+        <g-button-group>
+            <g-button icon="left">上一页</g-button>
+            <g-button >更多</g-button>
+            <g-button  icon="right" icon-position="right">下一页</g-button>
+        </g-button-group>
+        <g-icon name="download"></g-icon>
+    </div>
 
 </div>
 <script src="src/app.js"></script>
 <script src="//at.alicdn.com/t/c/font_3678038_zrujl6n5uv.js"></script>
-
 </body>
 </html>
