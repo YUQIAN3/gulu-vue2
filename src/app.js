@@ -22,12 +22,24 @@ new Vue({
        loading2:false,
        message:'hi',
     },
-    // create(){
-    //     this.$toast()
-    // },
+    created(){
+
+    },
+
     methods:{
         showToast(){
-            this.$toast('我是message')
+        this.$toast('你的智商需要充值！', {
+            position: 'top',
+            closeButton: {
+                text: '已充值',
+                callback () {
+                    console.log('他说已经充值智商了')
+                }
+            },
+            autoClose: false,
+            autoCloseDelay: 3
+
+        })
         },
         inputChange(e,x){
             console.log(e.target.value);
