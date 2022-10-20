@@ -28,12 +28,13 @@ new Vue({
 
     methods:{
         showToast(){
-        this.$toast('你的智商需要充值！', {
+        this.$toast(`你的智商目前为止 ${parseInt(Math.random()*100)} 你的智商需要充值！`, {
             position: 'top',
             closeButton: {
                 text: '已充值',
                 callback () {
                     console.log('他说已经充值智商了')
+
                 }
             },
             autoClose: false,
