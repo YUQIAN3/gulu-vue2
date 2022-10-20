@@ -1,15 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="b6cd567f-ef20-48cb-a22c-0337275f4b79" name="Changes" comment="初步实现响应式">
-      <change afterPath="$PROJECT_DIR$/src/plugin.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/toast.vue" afterDir="false" />
+    <list default="true" id="b6cd567f-ef20-48cb-a22c-0337275f4b79" name="Changes" comment="优化三种动画">
+      <change afterPath="$PROJECT_DIR$/src/tabs-body.vue" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/tabs-head.vue" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/tabs-item.vue" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/tabs-pane.vue" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/tabs.vue" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/app.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/row.vue" beforeDir="false" afterPath="$PROJECT_DIR$/src/row.vue" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -43,11 +43,17 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/src" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="settings.editor.selected.configurable" value="preferences.fileTypes" />
     <property name="vue.rearranger.settings.migration" value="true" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src" />
+    </key>
   </component>
   <component name="RunManager">
     <configuration name="dev-test" type="js.build_tools.npm" temporary="true" nameIsGenerated="true">
@@ -81,7 +87,7 @@
       <workItem from="1665978180644" duration="315000" />
       <workItem from="1665991408350" duration="2372000" />
       <workItem from="1666055660523" duration="3814000" />
-      <workItem from="1666062991941" duration="7290000" />
+      <workItem from="1666062991941" duration="27155000" />
     </task>
     <task id="LOCAL-00001" summary="添加loading状态">
       <created>1664502688675</created>
@@ -104,7 +110,42 @@
       <option name="project" value="LOCAL" />
       <updated>1665645995845</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="实现可以放多行文字">
+      <created>1666169821739</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1666169821739</updated>
+    </task>
+    <task id="LOCAL-00005" summary="实现position:top,middle,bottom功能">
+      <created>1666235071118</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1666235071118</updated>
+    </task>
+    <task id="LOCAL-00006" summary="实现了只能有一个toast的功能">
+      <created>1666237107691</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1666237107691</updated>
+    </task>
+    <task id="LOCAL-00007" summary="实现了动画">
+      <created>1666239832402</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1666239832402</updated>
+    </task>
+    <task id="LOCAL-00008" summary="优化三种动画">
+      <created>1666243181444</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1666243181444</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -141,7 +182,13 @@
     <MESSAGE value="get 不到 align 的值" />
     <MESSAGE value="模仿淘宝的设计" />
     <MESSAGE value="初步实现响应式" />
-    <option name="LAST_COMMIT_MESSAGE" value="初步实现响应式" />
+    <MESSAGE value="添加toast 和 plugin" />
+    <MESSAGE value="实现可以放多行文字" />
+    <MESSAGE value="实现position:top,middle,bottom功能" />
+    <MESSAGE value="实现了只能有一个toast的功能" />
+    <MESSAGE value="实现了动画" />
+    <MESSAGE value="优化三种动画" />
+    <option name="LAST_COMMIT_MESSAGE" value="优化三种动画" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
