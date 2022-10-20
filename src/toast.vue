@@ -12,7 +12,7 @@ export default {
   props:{
     autoClose:{
       type:Boolean,
-      default:false,
+      default:true,
     },
     autoCloseDelay:{
       type:Number,
@@ -74,7 +74,6 @@ export default {
   min-height:40px;
   line-height: 1.8;
   background: rgba(0,0,0,0.75);
-  border:1px solid purple;
   position:fixed;
   display: flex;
   left:50%;
