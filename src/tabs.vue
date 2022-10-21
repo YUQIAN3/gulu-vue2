@@ -32,10 +32,10 @@ props:{
  mounted() {
    this.$children.forEach((vm)=>{
      if(vm.$options.name==='TabsHead'){
-       vm.$children.forEach((item)=>{
-        if(item.$options.name==='TabsItem'&& item.name===this.selected){
-          console.log(item.$el);
-          this.eventBus.$emit('update:selected',this.selected,item)
+       vm.$children.forEach((childvm)=>{
+        if(childvm.$options.name==='TabsItem'&& item.name===this.selected){
+
+          this.eventBus.$emit('update:selected',this.selected,childvm)
         }
        })
      }
