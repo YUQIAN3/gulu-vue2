@@ -17,7 +17,6 @@ export default{
   display: flex;
   height: 40px;
   justify-content: flex-start;
-  align-items: center;
   border: 1px solid red;
 
 > .actions-wrapper {
