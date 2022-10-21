@@ -1,15 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="b6cd567f-ef20-48cb-a22c-0337275f4b79" name="Changes" comment="优化三种动画">
-      <change afterPath="$PROJECT_DIR$/src/tabs-body.vue" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/tabs-head.vue" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/tabs-item.vue" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/tabs-pane.vue" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/tabs.vue" afterDir="false" />
+    <list default="true" id="b6cd567f-ef20-48cb-a22c-0337275f4b79" name="Changes" comment="添加tans基本组件，添加基本props">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/app.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/tabs-body.vue" beforeDir="false" afterPath="$PROJECT_DIR$/src/tabs-body.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/tabs-head.vue" beforeDir="false" afterPath="$PROJECT_DIR$/src/tabs-head.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/tabs-item.vue" beforeDir="false" afterPath="$PROJECT_DIR$/src/tabs-item.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/tabs-pane.vue" beforeDir="false" afterPath="$PROJECT_DIR$/src/tabs-pane.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/tabs.vue" beforeDir="false" afterPath="$PROJECT_DIR$/src/tabs.vue" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -87,7 +89,8 @@
       <workItem from="1665978180644" duration="315000" />
       <workItem from="1665991408350" duration="2372000" />
       <workItem from="1666055660523" duration="3814000" />
-      <workItem from="1666062991941" duration="27155000" />
+      <workItem from="1666062991941" duration="32930000" />
+      <workItem from="1666319448766" duration="1446000" />
     </task>
     <task id="LOCAL-00001" summary="添加loading状态">
       <created>1664502688675</created>
@@ -145,7 +148,14 @@
       <option name="project" value="LOCAL" />
       <updated>1666243181444</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL-00009" summary="添加tans基本组件，添加基本props">
+      <created>1666252413476</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1666252413476</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -163,7 +173,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="引入svg" />
     <MESSAGE value="添加icon and iconPosition" />
     <MESSAGE value="不能换左右方向了" />
     <MESSAGE value="验证iconPosition 为 left或right中的一个" />
@@ -188,7 +197,8 @@
     <MESSAGE value="实现了只能有一个toast的功能" />
     <MESSAGE value="实现了动画" />
     <MESSAGE value="优化三种动画" />
-    <option name="LAST_COMMIT_MESSAGE" value="优化三种动画" />
+    <MESSAGE value="添加tans基本组件，添加基本props" />
+    <option name="LAST_COMMIT_MESSAGE" value="添加tans基本组件，添加基本props" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

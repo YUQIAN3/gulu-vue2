@@ -1,9 +1,10 @@
 <template>
-  <div class="tabs-header">
+  <div class="tabs">
     <slot></slot>
   </div>
 </template>
 <script>
+import Vue from 'vue'
 export default{
 props:{
   selected:{
@@ -18,7 +19,17 @@ props:{
     }
   }
 },
-  create(){
+  data () {
+    return {
+      eventBus: new Vue()
+    }
+  },
+  provide() {
+    return {
+      eventBus: this.eventBus
+    }
+  },
+  created(){
   // this.$emit('update:selected','xxx')
   }
 }
