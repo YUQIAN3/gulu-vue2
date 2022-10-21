@@ -29,9 +29,21 @@ props:{
       eventBus: this.eventBus
     }
   },
- mounted(){
-   this.eventBus.$emit('update:selected',this.selected)
-  }
+ mounted() {
+   this.$children.forEach((vm)=>{
+     if(vm.$options.name==='TabsHead'){
+       vm.$children.forEach((item)=>{
+        if(item.$options.name==='TabsItem'&& item.name===this.selected){
+          console.log(item.$el);
+          this.eventBus.$emit('update:selected',this.selected,item)
+        }
+       })
+     }
+   })
+
+
+
+   }
 }
 </script>
 <style>

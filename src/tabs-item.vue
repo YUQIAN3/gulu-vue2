@@ -5,6 +5,7 @@
 </template>
 <script>
 export default{
+  name:'TabsItem',
   inject: ['eventBus'],
 props:{
   disabled:{
@@ -54,7 +55,9 @@ props:{
   cursor: pointer;
   display: flex;
   align-items: center;
-  &.active{background: yellow;
+  &.active{
+    color:blue;
+    font-weight: bold;
    }
 }
 </style>
