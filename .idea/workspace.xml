@@ -1,13 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="b6cd567f-ef20-48cb-a22c-0337275f4b79" name="Changes" comment="添加tans基本组件，添加基本props">
+    <list default="true" id="b6cd567f-ef20-48cb-a22c-0337275f4b79" name="Changes" comment="注入eventBus">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/app.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/tabs-body.vue" beforeDir="false" afterPath="$PROJECT_DIR$/src/tabs-body.vue" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/tabs-head.vue" beforeDir="false" afterPath="$PROJECT_DIR$/src/tabs-head.vue" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/tabs-item.vue" beforeDir="false" afterPath="$PROJECT_DIR$/src/tabs-item.vue" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/tabs-pane.vue" beforeDir="false" afterPath="$PROJECT_DIR$/src/tabs-pane.vue" afterDir="false" />
@@ -17,6 +13,13 @@
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Vue Single File Component" />
+      </list>
+    </option>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -49,7 +52,7 @@
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
     <property name="nodejs_package_manager_path" value="npm" />
-    <property name="settings.editor.selected.configurable" value="preferences.fileTypes" />
+    <property name="settings.editor.selected.configurable" value="reference.idesettings.emmet.css" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
   <component name="RecentsManager">
@@ -90,7 +93,7 @@
       <workItem from="1665991408350" duration="2372000" />
       <workItem from="1666055660523" duration="3814000" />
       <workItem from="1666062991941" duration="32930000" />
-      <workItem from="1666319448766" duration="1446000" />
+      <workItem from="1666319448766" duration="5382000" />
     </task>
     <task id="LOCAL-00001" summary="添加loading状态">
       <created>1664502688675</created>
@@ -155,7 +158,14 @@
       <option name="project" value="LOCAL" />
       <updated>1666252413476</updated>
     </task>
-    <option name="localTasksCounter" value="10" />
+    <task id="LOCAL-00010" summary="注入eventBus">
+      <created>1666324477211</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1666324477211</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -173,7 +183,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="添加icon and iconPosition" />
     <MESSAGE value="不能换左右方向了" />
     <MESSAGE value="验证iconPosition 为 left或right中的一个" />
     <MESSAGE value="j将svg代码整理到icon.vue" />
@@ -198,7 +207,8 @@
     <MESSAGE value="实现了动画" />
     <MESSAGE value="优化三种动画" />
     <MESSAGE value="添加tans基本组件，添加基本props" />
-    <option name="LAST_COMMIT_MESSAGE" value="添加tans基本组件，添加基本props" />
+    <MESSAGE value="注入eventBus" />
+    <option name="LAST_COMMIT_MESSAGE" value="注入eventBus" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
