@@ -9,7 +9,15 @@
 export default{
   name:'TabsHead',
   inject: ['eventBus'],
-  created(){
+  mounted(){
+    this.eventBus.$on('update:selected',(item,vm)=>{
+      console.log(item,vm);
+      let{width,height,top,left}=vm.$el.getBoundingClientRect()
+     this.$refs.line.style.width=`${width}px`
+      this.$refs.line.style.left=`${left}px`
+
+
+    })
   }
 }
 </script>
@@ -18,16 +26,20 @@ export default{
   display: flex;
   height: 40px;
   justify-content: flex-start;
-
+ border-bottom: 1px solid #ddd;
   position: relative;
   >.line{
     position: absolute;
     bottom:0;
-    border-bottom: 1px solid blue;
-    width:100px;
+    border-bottom: 3px solid blue;
+    transition:all 350ms;
   }
 > .actions-wrapper {
   margin-left: auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding:0 1em;
 }
 
 }

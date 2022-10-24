@@ -42,7 +42,8 @@ export default {
 </script>
 <style lang="scss" scoped>
 .tabs-pane{
-&.active{background: yellow;
+  padding: 1em;
+&.active{;
  }
 }
 </style>
