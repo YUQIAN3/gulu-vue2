@@ -3,7 +3,7 @@
   <div ref="contentWrapper"  class="content-wrapper" v-if="visible">
     <slot name="content" ></slot>
   </div>
-<span ref="triggerWrapper">
+<span ref="triggerWrapper" style="display: inline-block">
   <slot></slot>
 </span>
 </div>
@@ -22,15 +22,18 @@ export default {
       this.$refs.contentWrapper.style.left=left+window.scrollX+'px'
       this.$refs.contentWrapper.style.top=top+window.scrollY+'px'
     },
-    listenToDocument(){
+    onClickDocument(){
       let x=(e)=> {
-        if (this.$refs.popover.contains(e.target)) {
 
+        if (this.$refs.popover&&this.$refs.popover.contains(e.target)) {
+        }
+        if(this.$refs.contentWrapper&&(this.$refs.contentWrapper===e.target||this.$refs.contentWrapper.contains(e.target))){
+          return
         }
           this.visible = false
-          console.log('close');
-        console.log('结束监听document');
+          console.log('结束监听document');
           document.removeEventListener('click', x)
+
       }
       console.log('监听document');
         document.addEventListener('click', x)
@@ -39,11 +42,11 @@ export default {
     onShow(){
       this.$nextTick(()=>{
         this.positionContent()
-        this.listenToDocument()
+        this.onClickDocument()
       })
     },
     onClick(event){
-      if(this.$refs.triggerWrapper.contains(event.target)) {
+      if(this.$refs.triggerWrapper&&this.$refs.triggerWrapper.contains(event.target)) {
       this.visible=!this.visible
         if(this.visible===true) {
           this.onShow()
@@ -63,9 +66,34 @@ export default {
 }
   .content-wrapper{
     position:absolute;
-    border:3px solid red;
-    box-shadow: 0 0 3px rgba(0,0,0,0.5);
+    background: white;
+    border:1px solid #333;
+    filter: drop-shadow(0 1px 1px  rgba(0,0,0,0.5));//兼容性不好，需要去caniuse去查查
+    //box-shadow: 0 0 3px rgba(0,0,0,0.5);
     transform: translateY(-100%);
+    margin-top:-10px;
+    padding:.5em 1em;
+    max-width: 20em;
+    word-break: break-word;
+    &::before{
+      content:'';
+      display: block;
+      border: 10px solid transparent;
+      border-top-color: #333;
+      top:100%;
+      left:10px;
+      position: absolute;
+    }
+    &::after{
+      content:'';
+      display: block;
+      border: 10px solid transparent;
+      border-top-color: white;
+      top:calc(100% - 1px);
+      left:10px;
+      position: absolute;
+    }
   }
+
 
 </style>
