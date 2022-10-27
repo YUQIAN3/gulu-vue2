@@ -34,16 +34,19 @@
 <div id="app" style="padding-top: 100px; padding-left: 100px; border:1px solid green;">
     <div style="overflow: hidden ;border:1px solid black;padding :5px">
         <g-popover position="bottom">
-            <template slot="content">
+            <template slot="content" >
                 <div>afaffgfagshtjdjkfhbjkbmbcznhgcnzvcgcbznzbvzbvzmnbmv</div>
             </template>
             <g-button>点我</g-button>
         </g-popover>
     <g-popover>
-        <template slot="content">
-            <div>这里面是内容222222</div>
+        <template slot="content" slot-scope="{close}">
+
+            <div>这里面是内容222222
+              <g-button @click="close">关闭</g-button>
+            <a href="http://baidu.com">看新闻</a></div>
         </template>
-        <g-button>点我</g-button>
+        <g-button @click="close" >点我</g-button>
     </g-popover>
         <g-popover position="left">
             <template slot="content">
