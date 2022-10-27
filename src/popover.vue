@@ -151,11 +151,13 @@ export default {
 
       &::before{
         border-top-color: #333;
+        border-bottom:none;
         top:100%;
         left:10px;
       }
       &::after{
         border-top-color: white;
+        border-bottom:none;
         top:calc(100% - 1px);
         left:10px;
       }
@@ -164,11 +166,13 @@ export default {
      margin-top:10px;
      &::before{
        border-bottom-color: #333;
+       border-top:none;
        bottom: 100%;
        left:10px;
      }
      &::after{
        border-bottom-color: white;
+       border-top:none;
        bottom:calc(100% - 1px);
        left:10px;
      }
@@ -178,6 +182,7 @@ export default {
       margin-left: -10px;
       &::before{
         border-left-color: #333;
+        border-right:none;
         bottom: 100%;
         left:100%;
         top:50%;
@@ -185,6 +190,7 @@ export default {
       }
       &::after{
         border-left-color: white;
+        border-right:none;
         bottom:calc(100% - 1px);
         left:calc(100% - 1px);
         top:50%;
@@ -195,12 +201,14 @@ export default {
       margin-left: 10px;
       &::before{
         border-right-color: #333;
+        border-left:none;
         top:50%;
         right: 100%;
         transform: translateY(-50%);
       }
       &::after{
         border-right-color: white;
+        border-left:none;
         right:calc(100% - 1px);
         top:50%;
         transform: translateY(-50%);
