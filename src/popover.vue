@@ -1,6 +1,6 @@
 <template>
 <div class="popover" @click="onClick" ref="popover">
-  <div ref="contentWrapper"  class="content-wrapper" v-if="visible">
+  <div ref="contentWrapper"  class="content-wrapper" v-if="visible" :class="{[`position-${position}`]:true}">
     <slot name="content" ></slot>
   </div>
 <span ref="triggerWrapper" style="display: inline-block">
@@ -15,12 +15,35 @@ export default {
       visible:false
     }
   },
+  props:{
+    position:{
+      type:String,
+      default:'top',
+      validator(value){
+        return['top','bottom','left','right'].indexOf(value)>=0
+      }
+    }
+  },
   methods:{
     positionContent(){
       document.body.appendChild(this.$refs.contentWrapper)
       let{width,height,top,left}=this.$refs.triggerWrapper.getBoundingClientRect()
-      this.$refs.contentWrapper.style.left=left+window.scrollX+'px'
-      this.$refs.contentWrapper.style.top=top+window.scrollY+'px'
+      if(this.position==='top'){
+        this.$refs.contentWrapper.style.left=left+window.scrollX+'px'
+        this.$refs.contentWrapper.style.top=top+window.scrollY+'px'
+      }else if(this.position==='bottom'){
+        this.$refs.contentWrapper.style.left=left+window.scrollX+'px'
+        this.$refs.contentWrapper.style.top=top+height+window.scrollY+'px'
+      }else if(this.position==='left'){
+        let{height:height2}=this.$refs.contentWrapper.getBoundingClientRect()
+        this.$refs.contentWrapper.style.left=left+window.scrollX+'px'
+        this.$refs.contentWrapper.style.top=top+(height-height2)/2+window.scrollY+'px'
+      }else if(this.position==='right'){
+        let{height:height2}=this.$refs.contentWrapper.getBoundingClientRect()
+        this.$refs.contentWrapper.style.left=left+width+window.scrollX+'px'
+        this.$refs.contentWrapper.style.top=top+(height-height2)/2+window.scrollY+'px'
+      }
+
     },
     onClickDocument(){
       let x=(e)=> {
@@ -70,28 +93,75 @@ export default {
     border:1px solid #333;
     filter: drop-shadow(0 1px 1px  rgba(0,0,0,0.5));//兼容性不好，需要去caniuse去查查
     //box-shadow: 0 0 3px rgba(0,0,0,0.5);
-    transform: translateY(-100%);
-    margin-top:-10px;
     padding:.5em 1em;
     max-width: 20em;
     word-break: break-word;
-    &::before{
+    &::before, &::after{
       content:'';
       display: block;
       border: 10px solid transparent;
-      border-top-color: #333;
-      top:100%;
-      left:10px;
       position: absolute;
     }
-    &::after{
-      content:'';
-      display: block;
-      border: 10px solid transparent;
-      border-top-color: white;
-      top:calc(100% - 1px);
-      left:10px;
-      position: absolute;
+    &.position-top{
+      transform: translateY(-100%);
+      margin-top:-10px;
+
+      &::before{
+        border-top-color: #333;
+        top:100%;
+        left:10px;
+      }
+      &::after{
+        border-top-color: white;
+        top:calc(100% - 1px);
+        left:10px;
+      }
+    }
+   &.position-bottom{
+     margin-top:10px;
+     &::before{
+       border-bottom-color: #333;
+       bottom: 100%;
+       left:10px;
+     }
+     &::after{
+       border-bottom-color: white;
+       bottom:calc(100% - 1px);
+       left:10px;
+     }
+   }
+    &.position-left{
+      transform: translateX(-100%);
+      margin-left: -10px;
+      &::before{
+        border-left-color: #333;
+        bottom: 100%;
+        left:100%;
+        top:50%;
+        transform: translateY(-50%);
+      }
+      &::after{
+        border-left-color: white;
+        bottom:calc(100% - 1px);
+        left:calc(100% - 1px);
+        top:50%;
+        transform: translateY(-50%);
+      }
+    }
+    &.position-right{
+      margin-left: 10px;
+      &::before{
+        border-right-color: #333;
+        top:50%;
+        right: 100%;
+        transform: translateY(-50%);
+      }
+      &::after{
+        border-right-color: white;
+        right:calc(100% - 1px);
+        top:50%;
+        transform: translateY(-50%);
+      }
     }
   }
 
