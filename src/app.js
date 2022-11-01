@@ -39,6 +39,8 @@ new Vue({
        loading2:false,
        message:'hi',
       selectedTab:'sports',
+      selectedCollapse:['1','2'],
+
     },
     created(){
 

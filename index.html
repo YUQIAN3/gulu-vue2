@@ -33,11 +33,12 @@
 <body>
 <div id="app" style="padding-top: 10px;">
     <div style="padding-bottom: 30px;">
-        <g-collapse single>
-            <g-collapse-item title="标题1">内容1</g-collapse-item>
-            <g-collapse-item title="标题2">内容2</g-collapse-item>
-            <g-collapse-item title="标题3">内容3</g-collapse-item>
+        <g-collapse :selected.sync="selectedCollapse" single>
+            <g-collapse-item title="标题1" name="1">内容1</g-collapse-item>
+            <g-collapse-item title="标题2" name="2">内容2</g-collapse-item>
+            <g-collapse-item title="标题3" name="3">内容3</g-collapse-item>
         </g-collapse>
+        {{selectedCollapse}}
     </div>
 
 
@@ -49,13 +50,13 @@
             <g-button>点我</g-button>
         </g-popover>
     <g-popover>
-        <template slot="content" slot-scope="{close}">
+        <template slot="content" >
 
             <div>这里面是内容222222
-              <g-button @click="close">关闭</g-button>
+              <g-button>关闭</g-button>
             <a href="http://baidu.com">看新闻</a></div>
         </template>
-        <g-button @click="close" >点我</g-button>
+        <g-button >点我</g-button>
     </g-popover>
         <g-popover position="left">
             <template slot="content">
