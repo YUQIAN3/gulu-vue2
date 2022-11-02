@@ -1,0 +1,1 @@
+.layout{flex-grow:1;display:flex;flex-direction:column}.layout.hasSider{flex-direction:row}.content{flex-grow:1}.sider{position:relative}.sider>button{position:absolute;right:0;top:0}.slide-enter-active,.slide-leave-active{transition:all 3s}.slide-enter,.slide-leave-to{margin-left:-200px}[data-v-011d4bca]{box-sizing:border-box}
