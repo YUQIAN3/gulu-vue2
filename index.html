@@ -25,13 +25,24 @@
     </style>
     <style>
         .demo{
-            height:100px;
+            min-height:100px;
             border:1px solid red;
         }
     </style>
 </head>
 <body>
 <div id="app" style="padding-top: 10px;">
+    <g-layout style="height:100vh;">
+        <g-sider >sider</g-sider>
+
+        <g-layout>
+            <g-header class="demo">header</g-header>
+            <g-content class="demo">content</g-content>
+            <g-footer class="demo">footer</g-footer>
+        </g-layout>
+
+
+    </g-layout>
     <div style="padding-bottom: 30px;">
         <g-collapse :selected.sync="selectedCollapse" single>
             <g-collapse-item title="标题1" name="1">内容1</g-collapse-item>
