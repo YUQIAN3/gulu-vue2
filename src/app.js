@@ -20,32 +20,45 @@ import Header from './header'
 import Content from './content'
 import Sider from './sider'
 import Footer from './footer'
+import Cascader from './cascader'
 
 Vue.component('g-button',Button)
-Vue.component('g-icon',Icon)
 Vue.component('g-button-group',ButtonGroup)
-Vue.component('g-input',Input)
-Vue.component('g-row',Row)
+Vue.component('g-cascader',Cascader)
 Vue.component('g-col',Col)
-Vue.component('g-toast',Toast)
-Vue.component('g-tabs',Tabs)
-Vue.component('g-tabs-head',TabsHead)
-Vue.component('g-tabs-body',TabsBody)
-Vue.component('g-tabs-item',TabsItem)
-Vue.component('g-tabs-pane',TabsPane)
-Vue.component('g-popover',Popover)
 Vue.component('g-collapse',Collapse)
 Vue.component('g-collapse-item',CollapseItem)
-Vue.component('g-layout',Layout)
-Vue.component('g-header',Header)
 Vue.component('g-content',Content)
-Vue.component('g-sider',Sider)
 Vue.component('g-footer',Footer)
+Vue.component('g-header',Header)
+Vue.component('g-icon',Icon)
+Vue.component('g-input',Input)
+Vue.component('g-layout',Layout)
+Vue.component('g-popover',Popover)
+Vue.component('g-row',Row)
+Vue.component('g-sider',Sider)
+Vue.component('g-tabs',Tabs)
+Vue.component('g-tabs-body',TabsBody)
+Vue.component('g-tabs-head',TabsHead)
+Vue.component('g-tabs-item',TabsItem)
+Vue.component('g-tabs-pane',TabsPane)
+Vue.component('g-toast',Toast)
 
 Vue.use(plugin)
 new Vue({
     el:"#app",
   data:{
+        source:[{name:'山东',
+            children:[
+                {name:'济南',children:[{name:'历下区'},{name:'市中区'},{name:'槐荫区'}]},
+                {name:'菏泽',children:[{name:'牡丹区'},{name:'定陶区'}]}
+            ]},
+             {name:'浙江',
+                 children:[
+                     {name:'杭州',children:[{name:'上城区'},{name:'下城区'},{name:'江干区'}]},
+                     {name:'嘉兴'}] },
+            {name:'安徽',children: [{name:'合肥'},{name:'芜湖'}]}
+        ],
       loading1:false,
        loading2:false,
        message:'hi',

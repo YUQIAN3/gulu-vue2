@@ -28,20 +28,32 @@
             min-height:100px;
             border:1px solid red;
         }
+        .sider{
+            background: #333;
+            width: 200px;
+        }
+        .header{
+            background: #999;
+            height: 100px;
+        }
+        .footer{
+            background: #ccc;
+            height: 50px;
+        }
     </style>
 </head>
 <body>
 <div id="app" style="padding-top: 10px;">
-    <g-layout style="height:100vh;">
+    <g-cascader :source="source" style="height: 800px">
+    </g-cascader>
+    <hr>
+    <g-layout style="height:100px;">
         <g-sider >sider</g-sider>
-
         <g-layout>
-            <g-header class="demo">header</g-header>
-            <g-content class="demo">content</g-content>
-            <g-footer class="demo">footer</g-footer>
+            <g-header >header</g-header>
+            <g-content >content</g-content>
+            <g-footer >footer</g-footer>
         </g-layout>
-
-
     </g-layout>
     <div style="padding-bottom: 30px;">
         <g-collapse :selected.sync="selectedCollapse" single>
