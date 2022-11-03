@@ -4,7 +4,7 @@
       <slot></slot>
     </div>
 <div class="popover" v-if="popoverVisible">
-<cascader-items :items="source"></cascader-items>
+<cascader-items :items="source" :height="popoverHeight"></cascader-items>
 
 </div>
 
@@ -20,6 +20,9 @@ export default {
   props:{
     source:{
       type:Array,
+    },
+    popoverHeight:{
+      type:String,
     }
   },
   data(){
@@ -29,15 +32,18 @@ export default {
 </script>
 <style lang="scss" scoped>
 .cascader{
+  position: relative;
   .trigger{
     height: 20px;
     width:80px;
-    border:1px solid blue;
+    border:1px solid black;
   }
 .popover{
-  height: 200px;
-  width:50px;
-  border:1px solid purple;
+  position: absolute;
+  top:100%;
+  left:0;
+  background: white;
+  box-shadow: 0 0 3px rgba(0,0,0,0.3);
 
 }
 }
