@@ -1,7 +1,5 @@
 <template>
   <div class="cascaderItem" :style="{height:height}">
-    <div>selected:{{selected&&selected[level]&&selected[level].name}}
-    level:{{level}}</div>
     <div class="left">
       <div class="label" v-for="item in items" @click="onClickLabel(item)">
         {{item.name}}
@@ -77,7 +75,7 @@ export default {
  .right{
    top:-1px;
    height: 100%;
-   border-left: 1px solid #333
+   border-left: 1px solid #3333332e
  }
  .label{
    white-space: nowrap;
