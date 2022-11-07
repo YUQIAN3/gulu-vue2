@@ -1,13 +1,17 @@
 <template>
   <div class="cascaderItem" :style="{height:height}">
+    <div>selected:{{selected&&selected[level]&&selected[level].name}}
+    level:{{level}}</div>
     <div class="left">
-      <div class="label" v-for="item in items" @click="leftSelected=item">
+      <div class="label" v-for="item in items" @click="onClickLabel(item)">
         {{item.name}}
-        <icon class="icon"  name="right" v-if="item.children"> ></icon>
+
+        <icon class="icon"  name="right" v-if="item.children"></icon>
       </div>
     </div>
     <div class=right v-if="rightItems">
-      <cascader-item :items="rightItems" :height="height"></cascader-item>
+      <cascader-item :items="rightItems" :height="height" :level="level+1"
+                     :selected="selected" @update:selected="onUpdateSelected"></cascader-item>
     </div>
   </div>
 </template>
@@ -22,6 +26,14 @@ export default {
     },
     height:{
       type:String
+    },
+    selected:{
+      type:Array,
+      default:()=>{return []}
+    },
+    level:{
+      type:Number,
+      default:0
     }
   },
   data(){
@@ -29,17 +41,29 @@ export default {
   },
   computed:{
     rightItems(){
-      if(this.leftSelected&&this.leftSelected.children){
-        return this.leftSelected.children
+      let currentSelected=this.selected[this.level]
+      if(currentSelected && currentSelected.children){
+        return currentSelected.children
       }else{
         return null
       }
+    }
+  },
+  methods:{
+    onClickLabel(item){
+      //this.selected[this.level]=item;//不能直接操作数组,不允许字组件修改props
+    let copy=JSON.parse(JSON.stringify(this.selected))
+      copy[this.level]=item
+      this.$emit('update:selected',copy)
+      //console.log(this.selected[this.level]);
+    },
+    onUpdateSelected(newSelected){
+      this.$emit('update:selected',newSelected)
     }
   }
 }
 </script>
 <style>
-
  .cascaderItem{
    display: flex;
    align-items: flex-start;
@@ -50,10 +74,9 @@ export default {
    padding:.3em 0;
  }
  .right{
-
    top:-1px;
    height: 100%;
-   border-left: 1px solid #999;
+   border-left: 1px solid #333
  }
  .label{
    white-space: nowrap;

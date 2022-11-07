@@ -4,7 +4,7 @@
       <slot></slot>
     </div>
 <div class="popover" v-if="popoverVisible">
-<cascader-items :items="source" :height="popoverHeight"></cascader-items>
+<cascader-items :items="source" :height="popoverHeight" :selected="selected" @update:selected="onUpdateSelected"></cascader-items>
 
 </div>
 
@@ -23,10 +23,20 @@ export default {
     },
     popoverHeight:{
       type:String,
+    },
+    selected:{
+      type:Array,
+      default:()=>{return []}
     }
   },
   data(){
     return{popoverVisible:false}
+  },
+  methods:{
+    onUpdateSelected(newSelected){
+      this.$emit('update:selected',newSelected)
+    }
+
   }
 }
 </script>
