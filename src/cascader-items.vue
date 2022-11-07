@@ -54,6 +54,7 @@ export default {
       //this.selected[this.level]=item;//不能直接操作数组,不允许字组件修改props
     let copy=JSON.parse(JSON.stringify(this.selected))
       copy[this.level]=item
+      copy.splice(this.level+1)
       this.$emit('update:selected',copy)
       //console.log(this.selected[this.level]);
     },
