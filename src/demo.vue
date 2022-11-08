@@ -16,6 +16,14 @@
 import Button from './button'
 import Cascader from './cascader'
 import Icon from './icon'
+import db from './db'
+function ajax (parentId=0) {
+
+  return db.filter((item) => item.parent_id===parentId)
+}
+
+console.log('1111');
+console.log(ajax());
 export default {
   name:'demo',
   components:{
@@ -26,17 +34,7 @@ export default {
   data(){
     return {
       selected:[],
-      source:[{name:'山东',
-        children:[
-          {name:'济南',children:[{name:'历下区'},{name:'市中区'},{name:'槐荫区'}]},
-          {name:'菏泽',children:[{name:'牡丹区'},{name:'定陶区'}]}
-        ]},
-        {name:'浙江',
-          children:[
-            {name:'杭州',children:[{name:'上城区'},{name:'下城区'},{name:'江干区'}]},
-            {name:'嘉兴'}] },
-        {name:'安徽',children: [{name:'合肥'},{name:'芜湖'}]}
-      ],
+      source:ajax()
     }
   }
 }
