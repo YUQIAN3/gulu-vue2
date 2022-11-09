@@ -2,9 +2,8 @@
   <div class="cascaderItem" :style="{height:height}">
     <div class="left">
       <div class="label" v-for="item in items" @click="onClickLabel(item)">
-        {{item.name}}
-
-        <icon class="icon"  name="right" v-if="item.children"></icon>
+        <span class="name">{{item.name}}</span>
+        <icon class="icon"  name="right" v-if="!item.isLeaf"></icon>
       </div>
     </div>
     <div class=right v-if="rightItems">
@@ -32,21 +31,26 @@ export default {
     level:{
       type:Number,
       default:0
-    }
+    },
   },
   data(){
     return{leftSelected:null}
   },
+  updated () {
+    // console.log('cascader items updated')
+    // console.log(JSON.stringify(this.items))
+  },
   computed:{
     rightItems(){
-      let currentSelected=this.selected[this.level]
-      if(currentSelected && currentSelected.children){
-        return currentSelected.children
-      }else{
-        return null
+      if (this.selected[this.level]) {
+        let selected = this.items.filter((item) => item.name === this.selected[this.level].name)
+        if (selected && selected[0].children && selected[0].children.length > 0) {
+          return selected[0].children
+        }
       }
     }
   },
+
   methods:{
     onClickLabel(item){
       //this.selected[this.level]=item;//不能直接操作数组,不允许字组件修改props
@@ -62,7 +66,7 @@ export default {
   }
 }
 </script>
-<style>
+<style lang="scss" scoped>
  .cascaderItem{
    display: flex;
    align-items: flex-start;
@@ -80,12 +84,20 @@ export default {
  }
  .label{
    white-space: nowrap;
-   padding:.3em 1em;
+   padding:.5em 1em;
    display: flex;
    align-items: center;
+   cursor: pointer;
+   &:hover{
+     background: #eee;
+   }
+   > .name{
+     margin-right: 1em;
+     user-select: none;
+   }
  }
  .icon{
-   margin-left: 1em;
+   margin-left: auto;
    transform: scale(0.7);
  }
 </style>
