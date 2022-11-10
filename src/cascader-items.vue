@@ -3,12 +3,22 @@
     <div class="left">
       <div class="label" v-for="item in items" @click="onClickLabel(item)">
         <span class="name">{{item.name}}</span>
-        <icon class="icon"  name="right" v-if="!item.isLeaf"></icon>
+        <template v-if="item.name===loadingItem.name">
+          <icon class="icon2"  name="loading" ></icon>
+        </template>
+        <template v-else>
+          <icon class="icon"  name="right" v-if="! item.isLeaf"></icon>
+        </template>
+
+
+
       </div>
     </div>
     <div class=right v-if="rightItems">
       <cascader-item :items="rightItems" :height="height" :level="level+1"
-                     :selected="selected" @update:selected="onUpdateSelected"></cascader-item>
+                     :selected="selected" @update:selected="onUpdateSelected"
+                     :loading-item="loadingItem"
+      ></cascader-item>
     </div>
   </div>
 </template>
@@ -32,6 +42,10 @@ export default {
       type:Number,
       default:0
     },
+    loadingItem:{
+      type:Object,
+      default:()=>({})
+    }
   },
   data(){
     return{leftSelected:null}
@@ -67,6 +81,10 @@ export default {
 }
 </script>
 <style lang="scss" scoped>
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
  .cascaderItem{
    display: flex;
    align-items: flex-start;
@@ -100,4 +118,5 @@ export default {
    margin-left: auto;
    transform: scale(0.7);
  }
+.icon2{animation: spin 2s infinite linear ;}
 </style>

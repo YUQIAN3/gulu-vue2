@@ -4,7 +4,8 @@
       {{result||'&nbsp'}}
     </div>
 <div class="popover" v-if="popoverVisible">
-<cascader-items :items="source" :height="popoverHeight" :selected="selected" @update:selected="onUpdateSelected"></cascader-items>
+<cascader-items :items="source" :height="popoverHeight" :selected="selected"
+                @update:selected="onUpdateSelected" :loading-item="loadingItem"></cascader-items>
 
 </div>
 
@@ -34,7 +35,9 @@ export default {
     }
   },
   data(){
-    return{popoverVisible:false}
+    return{popoverVisible:false,
+      loadingItem:{}
+    }
   },
   methods:{
     onClickDocument(e){
@@ -96,13 +99,15 @@ export default {
         }
       }
       let updateSource = (result) => {
+        this.loadingItem={}
         let copy = JSON.parse(JSON.stringify(this.source))
         let toUpdate = complex(copy, lastItem.id)
         toUpdate.children = result
         this.$emit('update:source', copy)
       }
-      if(!lastItem.isLeaf){
+      if(! lastItem.isLeaf){
         this.loadData(lastItem, updateSource)
+        this.loadingItem=lastItem
       }
       // 回调:把别人传给我的函数调用一下
       // 调回调的时候传一个函数,这个函数理论应该被调用

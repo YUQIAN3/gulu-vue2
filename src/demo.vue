@@ -9,7 +9,7 @@
                   @update:selected="onUpdateSelected"
                   :selected.sync="selected" :load-data="loadData"></g-cascader>
     </div>
-    {{source}}
+    {{selected.map(item=>item.name)}}
   </div>
 
 </template>
@@ -18,15 +18,17 @@ import Button from './button'
 import Cascader from './cascader'
 import Icon from './icon'
 import db from './db'
+import Popover from './popover'
 function ajax (parentId=0) {
   return new Promise((success,fail)=>{
     setTimeout(()=>{
       let result=db.filter((item)=>item.parent_id===parentId)
       result.forEach(node=>{
-        if(db.filter((item)=>item.parent_id===node.id)){
+        if(db.filter((item)=>item.parent_id===node.id).length>0){
           node.isLeaf=false
         }else{
           node.isLeaf=true
+
         }
           }
       )
@@ -40,7 +42,8 @@ export default {
   components:{
     'g-button':Button,
     'g-cascader':Cascader,
-    'g-icon':Icon
+    'g-icon':Icon,
+    'g-popover':Popover
   },
   data(){
     return {
@@ -50,7 +53,6 @@ export default {
   },
   created(){
    ajax(0).then((result)=>{
-     console.log('11111');
      console.log(result);
       this.source=result
     })
