@@ -113,8 +113,11 @@ body{
 }
 .demo{
   background: #ddd;
-  border:1px solid red;
   width:100%;
   height:100px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 30px;
 }
 </style>
