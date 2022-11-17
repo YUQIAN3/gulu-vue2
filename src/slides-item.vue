@@ -7,6 +7,7 @@
 </template>
 <script>
 export default {
+  name:'SlidesItem',
   props:{
     name:{
       type:String,
