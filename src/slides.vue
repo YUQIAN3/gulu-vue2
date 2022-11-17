@@ -1,6 +1,6 @@
 <template>
-  <div class="g-slides" @mouseenter="onMouseEnter"
-       @mouseleave="onMouseLeave">
+  <div class="g-slides" @mouseenter="onMouseEnter" @mouseleave="onMouseLeave"
+  @touchstart="onTouchStart" @touchmove="onTouchMove" @touchend="onTouchEnd">
     <div class="g-slides-window" >
       <slot></slot>
     </div>
@@ -25,7 +25,8 @@ export default {
     return {
       childrenLength:0,
       lastSelectedIndex:undefined,
-      timeId:undefined
+      timeId:undefined,
+      startTouch:undefined
     }
   },
 mounted(){
@@ -38,8 +39,12 @@ mounted(){
   },
   computed:{
     selectedIndex(){
-      return this.names.indexOf(this.selected) || 0
-
+      let index=this.names.indexOf(this.selected)
+     if(index===-1){
+       return 0
+     }else{
+       return index
+     }
     },
     names(){
       return this.$children.map(vm=>vm.name)
@@ -52,22 +57,58 @@ mounted(){
     onMouseLeave(){
       this.playAutomatically()
     },
-    select(index){
-   this.lastSelectedIndex=this.selectedIndex
-      this.$emit('update:selected',this.names[index])
+    onTouchStart(e){
+      this.pause()
+      this.startTouch=e.touches[0]
+      console.log('摸');
+    },
+    onTouchMove(){
+      console.log('边摸变动');
+    },
+    onTouchEnd(e) {
+      console.log('摸完了');
+      let endTouch = e.changedTouches[0]
+      let {clientX: x1, clientY: y1} = this.startTouch
+      let {clientX: x2, clientY: y2} = endTouch
+      let distance = Math.sqrt(Math.pow(x2 - x1, 2 )+Math.pow(y2 - y1, 2 ))
+      console.log(distance);
+      let deltaY = Math.abs(y2 - y1)
+      let rate=distance/deltaY
+      console.log('rate');
+      console.log(rate);
+      if (rate > 2) {
+        console.log('在滑我');
+        if (x2 > x1) {
+          console.log('right');
+          this.select(this.selectedIndex + 1)
+
+        } else {
+          console.log('left');
+          this.select(this.selectedIndex - 1)
+
+        }
+      }
+      this.$nextTick(()=>{
+        this.playAutomatically()
+      })
+
+    },
+    select(newIndex){
+      this.lastSelectedIndex=this.selectedIndex
+      if(newIndex===-1){
+        newIndex=this.names.length-1
+      }
+      if(newIndex===this.names.length){
+        newIndex=0
+      }
+      this.$emit('update:selected',this.names[newIndex])
     },
     playAutomatically() {
       if(this.timeId){return}
       let run=()=>{
+
         let index = this.names.indexOf(this.getSelected())
         let newIndex=index+1
-        console.log(newIndex);
-        if(newIndex===this.names.length){
-          newIndex=0
-        }
-        if(newIndex===-1){
-         newIndex=this.names.length+1
-        }
         this.select(newIndex)
         this.timeId=setTimeout(run,3000)
       }
@@ -93,7 +134,6 @@ mounted(){
             reverse=true
           }
         }
-
         vm.reverse=reverse
         this.$nextTick(()=>{
           vm.selected=selected
