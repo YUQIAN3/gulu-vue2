@@ -1,18 +1,18 @@
-<template>
-  <div class="wrapper">
-    <g-slides :selected.sync="selected">
-      <g-slides-item name="1">
-        <div class="demo">1</div>
-      </g-slides-item >
-      <g-slides-item name="2">
-        <div class="demo">2</div>
-      </g-slides-item>
-      <g-slides-item name="3">
-        <div class="demo">3</div>
-      </g-slides-item>
 
-    </g-slides>
-  </div>
+<!--  <div class="wrapper">-->
+<!--    <g-slides :selected.sync="selected">-->
+<!--      <g-slides-item name="1">-->
+<!--        <div class="demo">1</div>-->
+<!--      </g-slides-item >-->
+<!--      <g-slides-item name="2">-->
+<!--        <div class="demo">2</div>-->
+<!--      </g-slides-item>-->
+<!--      <g-slides-item name="3">-->
+<!--        <div class="demo">3</div>-->
+<!--      </g-slides-item>-->
+
+<!--    </g-slides>-->
+<!--  </div>-->
 <!--  <div>-->
 <!--    <p>{{selected&&selected[0]&&selected[0].name||'空'}}</p>-->
 <!--    <p>{{selected&&selected[1]&&selected[1].name||'空'}}</p>-->
@@ -25,9 +25,19 @@
 <!--    </div>-->
 <!--    {{selected.map(item=>item.name)}}-->
 <!--  </div>-->
-
+<template>
+  <div>
+    <g-nav :selected.sync="selected">
+      <g-nav-item name="home">主页</g-nav-item>
+      <g-nav-item name="about">关于</g-nav-item>
+      <g-nav-item name="hire">招聘</g-nav-item>
+    </g-nav>
+  </div>
 </template>
 <script>
+import GNav from '../src/nav/nav'
+import GNavItem from '../src/nav/nav-item'
+import GSubNav from '../src/nav/subnav'
 import Button from './button'
 import Cascader from './cascader'
 import Icon from './icon'
@@ -35,37 +45,43 @@ import db from './db'
 import Popover from './popover'
 import Slides from './slides'
 import SlidesItem from './slides-item'
-function ajax (parentId=0) {
-  return new Promise((success,fail)=>{
-    setTimeout(()=>{
-      let result=db.filter((item)=>item.parent_id===parentId)
-      result.forEach(node=>{
-        if(db.filter((item)=>item.parent_id===node.id).length>0){
-          node.isLeaf=false
-        }else{
-          node.isLeaf=true
-
-        }
-          }
-      )
-      success(result)
-    },2000)
-
-  })
-}
-export default {
+// function ajax (parentId=0) {
+//   return new Promise((success,fail)=>{
+//     setTimeout(()=>{
+//       let result=db.filter((item)=>item.parent_id===parentId)
+//       result.forEach(node=>{
+//         if(db.filter((item)=>item.parent_id===node.id).length>0){
+//           node.isLeaf=false
+//         }else{
+//           node.isLeaf=true
+//
+//         }
+//           }
+//       )
+//       success(result)
+//     },2000)
+//
+//   })
+// }
+ export default {
   name:'demo',
-  components:{
-    'g-button':Button,
-    'g-cascader':Cascader,
-    'g-icon':Icon,
-    'g-popover':Popover,
-    'g-slides':Slides,
-    'g-slides-item':SlidesItem
-  },
-  data(){
-    return {selected:undefined}
-  },
+   components:{GNav,GNavItem,GSubNav},
+   data(){
+    return {selected:['home']}
+}
+ }
+</script>
+//   components:{
+//     'g-button':Button,
+//     'g-cascader':Cascader,
+//     'g-icon':Icon,
+//     'g-popover':Popover,
+//     'g-slides':Slides,
+//     'g-slides-item':SlidesItem
+//   },
+//   data(){
+//     return {selected:undefined}
+//   },
   // data(){
   //   return {
   //     selected:[],
@@ -98,8 +114,8 @@ export default {
   //   onUpdateSelected () {
   //   }
   // }
-}
-</script>
+
+
 <style>
 *{margin:0;padding:0;box-sizing: border-box;}
 html{
