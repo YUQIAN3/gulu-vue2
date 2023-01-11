@@ -31,11 +31,17 @@ data(){
     display: block;
   }
   &-popover{
+    background: white;
     position:absolute;
     top:100%;
     left:0;
     white-space: nowrap;
-    border:1px solid black;
+    margin-top:2px;
+    box-shadow: 0 0 3px grey;
+    border-radius: 4px;
+    font-size: 12px;
+    color:grey;
+    min-width: 8em;
   }
 }
 .g-subnav .g-subnav .g-subnav-popover{

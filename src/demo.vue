@@ -49,6 +49,7 @@
       <g-nav-item name="hire">招聘</g-nav-item>
     </g-nav>
   </div>
+
 </template>
 <script>
 import GNav from '../src/nav/nav'
@@ -83,7 +84,7 @@ import SlidesItem from './slides-item'
   name:'demo',
    components:{GNav,GNavItem,GSubNav},
    data(){
-    return {selected:['home']}
+    return {selected:['hire']}
 }
  }
 </script>

@@ -32,8 +32,27 @@ export default{
 <style lang="scss" scoped>
 .g-nav-item{
 padding:10px 20px;
+  position: relative;
   &.selected{
-    background: red;
+    &::after{
+      content:'';
+      position:absolute;
+      top:100%;
+      left:0;
+      border-bottom:2px solid #4a90e2;
+      width:100%;
+
+    }
+  }
+}
+.g-subnav .g-nav-item{
+
+  &.selected{
+    background: grey;
+    color:black;
+  }
+  &::after{
+    display: none;
   }
 }
 </style>

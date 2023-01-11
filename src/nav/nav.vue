@@ -73,7 +73,8 @@ methods:{
 </script>
 <style lang="scss" scoped>
 .g-nav{
-  border:1px solid red;
   display: flex;
+  border-bottom:1px solid #eee;
+ cursor: default;
 }
 </style>
