@@ -6,6 +6,11 @@
 <script>
 export default{
   name:'Nav',
+  provide(){
+    return {
+      root:this
+    }
+  },
   props:{
     selected:{
       type:Array,
@@ -16,11 +21,14 @@ export default{
       default:false
     }
   },
-  computed:{
-    items(){
-      return this.$children.filter(vm=>vm.$options.name==='NavItem')
-    }
+  data(){
+    return{items:[]}
   },
+  // computed:{
+  //   items(){
+  //     return this.$children.filter(vm=>vm.$options.name==='NavItem')
+  //   }
+  // },
   mounted() {
     this.updateChildren()
     this.listenToChildren()
@@ -29,6 +37,9 @@ export default{
     this.updateChildren()
   },
 methods:{
+    addItem(vm){
+      this.items.push(vm)
+    },
     updateChildren(){
       this.items.forEach(vm => {
         if (this.selected.indexOf(vm.name) >= 0) {
