@@ -29,17 +29,23 @@
   <div>
     <g-nav :selected.sync="selected">
       <g-nav-item name="home">主页</g-nav-item>
-      <g-sub-nav>
+      <g-sub-nav name="about">
         <template slot="title">关于</template>
         <template>
         <g-nav-item name="culture">企业文化</g-nav-item>
         <g-nav-item name="developers">开发团队</g-nav-item>
         </template>
-          <g-sub-nav>
+          <g-sub-nav name="contact">
             <template slot="title">联系方式</template>
             <g-nav-item name="wechat">微信</g-nav-item>
             <g-nav-item name="qq">qq</g-nav-item>
-            <g-nav-item name="phone">电话</g-nav-item>
+            <g-sub-nav name="phone">
+              <template slot="title">电话</template>
+              <g-nav-item name="cm">移动</g-nav-item>
+              <g-nav-item name="cu">联通</g-nav-item>
+              <g-nav-item name="cn">电信</g-nav-item>
+            </g-sub-nav>
+
 
           </g-sub-nav>
 
@@ -62,6 +68,7 @@ import db from './db'
 import Popover from './popover'
 import Slides from './slides'
 import SlidesItem from './slides-item'
+import {removeListener} from './click-outside'
 // function ajax (parentId=0) {
 //   return new Promise((success,fail)=>{
 //     setTimeout(()=>{

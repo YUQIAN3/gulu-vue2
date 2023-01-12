@@ -23,7 +23,9 @@ export default{
   },
   methods:{
     onClick(){
-   this.$emit('add:selected',this.name)
+      this.root.namePath=[]
+     this.$parent.updateNamePath&&this.$parent.updateNamePath()
+      this.$emit('add:selected',this.name)
     }
   }
 
@@ -39,7 +41,7 @@ padding:10px 20px;
       position:absolute;
       top:100%;
       left:0;
-      border-bottom:2px solid #4a90e2;
+      border-bottom:3px solid #4a90e2;
       width:100%;
 
     }

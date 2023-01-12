@@ -22,7 +22,9 @@ export default{
     }
   },
   data(){
-    return{items:[]}
+    return{
+      items:[],
+     namePath:[]}
   },
   // computed:{
   //   items(){
@@ -76,5 +78,6 @@ methods:{
   display: flex;
   border-bottom:1px solid #eee;
  cursor: default;
+  user-select: none;
 }
 </style>
