@@ -91,7 +91,7 @@ import {removeListener} from './click-outside'
   name:'demo',
    components:{GNav,GNavItem,GSubNav},
    data(){
-    return {selected:['hire']}
+    return {selected:'home'}
 }
  }
 </script>
