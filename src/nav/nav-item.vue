@@ -1,12 +1,12 @@
 <template >
-  <div class="g-nav-item" :class="{selected}" @click="onClick">
+  <div class="g-nav-item" :class="{selected,vertical}" @click="onClick">
     <slot></slot>
   </div>
 </template>
 <script>
 export default{
   name:'NavItem',
-  inject:['root'],
+  inject:['root','vertical'],
   props:{
     name:{
       type:String,
@@ -35,6 +35,7 @@ export default{
 .g-nav-item{
 padding:10px 20px;
   position: relative;
+  &:not(.vertical){
   &.selected{
     &::after{
       content:'';
@@ -47,7 +48,13 @@ padding:10px 20px;
     }
   }
 }
-.g-subnav .g-nav-item{
+  &.vertical {
+    &.selected {
+      color: blue;
+    }
+  }
+}
+.g-subnav .g-nav-item:not(.vertical){
 
   &.selected{
     background: grey;

@@ -1,30 +1,38 @@
 <template >
-  <div class="g-subnav" :class="{active}" v-click-outside="close">
+  <div class="g-subnav" :class="{active,vertical}" v-click-outside="close">
     <span class="g-subnav-label" @click="onClick" >
       <slot name="title"></slot>
-      <span class="g-subnav-icon" :class="{open}">
+      <span class="g-subnav-icon" :class="{open,vertical}">
          <g-icon name="right" ></g-icon>
       </span>
-
     </span>
-    <div class="g-subnav-popover" v-show="open">
-      <slot></slot>
-    </div>
-
+    <template v-if="vertical">
+      <transition @enter="enter" @leave="leave" @after-leave="afterLeave"
+                  @after-enter="afterEnter">
+        <div class="g-subnav-popover" v-show="open" :class="{vertical:vertical}">
+          <slot></slot>
+        </div>
+      </transition>
+    </template>
+    <template v-else>
+      <div class="g-subnav-popover" v-show="open">
+        <slot></slot>
+      </div>
+    </template>
   </div>
 </template>
 <script>
 import ClickOutside from '../click-outside';
 import GIcon from '../icon'
-export default{
-  components:{GIcon},
+export default {
+  components: {GIcon},
   directives: {ClickOutside},
-  name:'Subnav',
-  inject:['root'],
-  props:{
-    name:{
-     type:String,
-     require:true
+  name: 'Subnav',
+  inject: ['root', 'vertical'],
+  props: {
+    name: {
+      type: String,
+      require: true
     }
   },
 data(){
@@ -37,6 +45,30 @@ data(){
     }
   },
   methods:{
+    enter (el, done) {
+      let {height} = el.getBoundingClientRect()
+      el.style.height = 0
+      el.getBoundingClientRect()
+      el.style.height = `${height}px`
+      el.addEventListener('transitionend', () => {
+        done()
+      })
+    },
+    afterEnter (el) {
+      el.style.height = 'auto'
+    },
+    leave: function (el, done) {
+      let {height} = el.getBoundingClientRect()
+      el.style.height = `${height}px`
+      el.getBoundingClientRect()
+      el.style.height = 0
+      el.addEventListener('transitionend', () => {
+        done()
+      })
+    },
+    afterLeave: function (el) {
+      el.style.height = 'auto'
+    },
     onClick(){
       this.open=!this.open
     },
@@ -59,17 +91,21 @@ data(){
 <style lang="scss" scoped>
 .g-subnav{
   position:relative;
-  &.active{
-    &::after{
-      content:'';
-      position:absolute;
-      top:100%;
-      left:0;
-      border-bottom:3px solid #4a90e2;
-      width:100%;
+  &:not(.vertical){
+    &.active{
+      &::after{
+        content:'';
+        position:absolute;
+        top:100%;
+        left:0;
+        border-bottom:3px solid #4a90e2;
+        width:100%;
+
+      }
 
     }
   }
+
   &-label{
     padding:  10px 20px;
     display: block;
@@ -78,6 +114,7 @@ data(){
     display: none;
   }
   &-popover{
+    transition: height 250ms;
     background: white;
     position:absolute;
     top:100%;
@@ -89,7 +126,15 @@ data(){
     font-size: 12px;
     color:grey;
     min-width: 8em;
+    &.vertical {
+      position: static;
+      border-radius: 0;
+      border:none;
+      box-shadow: none;
+      overflow: hidden;
+    }
   }
+
 }
 .g-subnav .g-subnav {
   .g-subnav-popover{
@@ -104,8 +149,14 @@ data(){
   }
   .g-subnav-icon{
     transition: transform 200ms;
-    display: inline-flex;
+    display: inline-flex;margin-left: 1em;
     svg{fill:grey;}
+    &.vertical {
+      transform: rotate(90deg);
+      &.open {
+        transform: rotate(270deg);
+      }
+    }
 
     &.open{
       transform:rotate(180deg);
